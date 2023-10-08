@@ -12,6 +12,8 @@ import ContactUs from "./Components/ContactUs/ContactUs";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
+import Details from "./Components/Details/Details";
+import PrivateRoute from "./Components/Routess/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +25,7 @@ const router = createBrowserRouter([
         loader: () => fetch("/data.json"),
         element: <Home></Home>,
       },
-      {
-        path: "/events",
-        element: <Events></Events>,
-      },
+      
       {
         path: "/about",
         element: <AboutUs></AboutUs>,
@@ -35,6 +34,12 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <ContactUs></ContactUs>,
       },
+      {
+        path: '/details/:id',
+        loader: () => fetch('/data.json'),
+        element: <PrivateRoute><Details></Details></PrivateRoute>
+      },
+      
     ],
   },
   {

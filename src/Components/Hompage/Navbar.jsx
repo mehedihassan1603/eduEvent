@@ -4,12 +4,13 @@ import "./Navbar.css";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 function Navbar() {
+  
   const { user, logOut } = useContext(AuthContext);
-  const handleLogout = () =>{
+  const handleLogout = () => {
     logOut()
-    .then(()=> console.log("Successfull"))
-    .catch(error => console.log(error))
-  }
+      .then(() => console.log("Successfull"))
+      .catch((error) => console.log(error));
+  };
   return (
     <nav className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 px-6 py-3 rounded-b-md">
       <div className="container mx-auto flex items-center justify-between">
@@ -28,14 +29,41 @@ function Navbar() {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/events"
-              className="text-white hover:text-pink-300 transition duration-300"
+          <div className="dropdown dropdown-hover">
+            
+            <label
+              tabIndex={0}
+              className="m-1 text-white hover:text-pink-300 transition duration-300"
             >
-              Events
-            </NavLink>
-          </li>
+              Event
+            </label>
+            
+
+            <ul
+              tabIndex={0}
+              className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <NavLink to={`/details/1`}>Workshop and Seminar</NavLink>
+              </li>
+              <li>
+              <NavLink to={`/details/2`}>Online Courses</NavLink>
+              </li>
+              <li>
+              <NavLink to={`/details/3`}>Career Fairs</NavLink>
+              </li>
+              <li>
+              <NavLink to={`/details/4`}>Artist Skills Swap</NavLink>
+              </li>
+              <li>
+              <NavLink to={`/details/5`}>Creative Kids Corner</NavLink>
+              </li>
+              <li>
+              <NavLink to={`/details/6`}>IT Learning and Training.</NavLink>
+              </li>
+            </ul>
+          </div>
+
           <li>
             <NavLink
               to="/about"
@@ -57,7 +85,9 @@ function Navbar() {
           {user ? (
             <>
               <span>{user.email}</span>
-              <button className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-2 px-4 rounded-full shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out"><a onClick={handleLogout}>Logout</a></button>
+              <button className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-2 px-4 rounded-full shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
+                <a onClick={handleLogout}>Logout</a>
+              </button>
             </>
           ) : (
             <Link to="/login">

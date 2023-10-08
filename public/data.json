@@ -1,45 +1,44 @@
 [
-    {
-      "title": "Workshops and Seminars",
-      "description": "Hands-on learning experiences to acquire practical skills and knowledge in various subjects.",
-      "price": "Free or Paid",
-      "imageUrl": "https://i.ibb.co/0BPtqnR/speaker-training-education-conference-46290858.jpg",
-      "buttonText": "Learn More"
-    },
-    {
-      "title": "Online Courses",
-      "description": "Flexible and accessible online courses for skill development and knowledge enhancement.",
-      "price": "Varies",
-      "imageUrl": "https://i.ibb.co/rpcB5Dn/online-courses.jpg",
-      "buttonText": "Enroll Now"
-    },
-    {
-      "title": "Career Fairs",
-      "description": "Connect with employers and explore job opportunities at our career fairs.",
-      "price": "Free Admission",
-      "imageUrl": "https://i.ibb.co/8PXxB7r/career-services.jpg",
-      "buttonText": "Register"
-    },
-    {
-      "title": "Artist Skills Swap",
-      "description": "A creative community where artists share and exchange their skills and expertise.",
-      "price": "Participation is Free",
-      "imageUrl": "https://i.ibb.co/2NbgDw2/Swap.jpg",
-      "buttonText": "Join Now"
-    },
-    {
-      "title": "Creative Kids Corner",
-      "description": "Engage your child in fun and educational activities to nurture their creativity.",
-      "price": "Free",
-      "imageUrl": "https://i.ibb.co/Gsxk54b/kids-Corner.jpg",
-      "buttonText": "Explore"
-    },
-    {
-      "title": "IT Learning and Training Center",
-      "description": "Advance your IT skills with training in coding, cybersecurity, and more.",
-      "price": "Course Fees Apply",
-      "imageUrl": "https://i.ibb.co/8MBL335/Training-Institute.jpg",
-      "buttonText": "Get Started"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "title": "Workshops and Seminars",
+    "description": "Hands-on learning experiences to acquire practical skills and knowledge in various subjects. These workshops and seminars provide valuable insights and opportunities to learn from experts in the field. Gain practical skills through hands-on workshops and seminars, led by experts in various subjects. Whether it's free or paid, these experiences offer valuable insights and knowledge. Participants engage in interactive, hands-on activities that encourage experiential learning and skill acquisition. Knowledgeable instructors and experts lead these sessions, sharing their insights and expertise with attendees. Workshops and seminars cover a wide range of subjects, catering to diverse interests and needs, from professional development to creative pursuits.",
+    "price": "Free or Paid",
+    "imageUrl": "https://i.ibb.co/0BPtqnR/speaker-training-education-conference-46290858.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Online Courses",
+    "description": "Flexible and accessible online courses for skill development and knowledge enhancement. These courses offer a wide range of topics and the flexibility to learn at your own pace. Explore a variety of topics at your own pace. Prices vary, making learning accessible for everyone.",
+    "price": "Varies",
+    "imageUrl": "https://i.ibb.co/rpcB5Dn/online-courses.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Career Fairs",
+    "description": "Connect with employers and explore job opportunities at our career fairs. These events provide a platform for networking and discovering potential career paths. Career Fairs typically attract a wide range of participants, including recent graduates, experienced professionals, and individuals seeking a career change. On the employer side, companies from various industries set up booths or virtual booths to showcase their organization and job openings",
+    "price": "Free Admission",
+    "imageUrl": "https://i.ibb.co/8PXxB7r/career-services.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Artist Skills Swap",
+    "description": "A creative community where artists share and exchange their skills and expertise. Join this platform to collaborate with fellow artists and expand your creative horizons. Artist Skills Swap is a vibrant and collaborative community where artists come together to exchange their skills, knowledge, and creative expertise. Members of the community freely share their artistic talents, whether it's painting, drawing, music, writing, or any other form of creative expression. Artist Skills Swap is not just a platform for honing artistic abilities; it's a community that fosters creativity, collaboration, and artistic development, enriching the artistic journey for all its members.",
+    "price": "Participation is Free",
+    "imageUrl": "https://i.ibb.co/2NbgDw2/Swap.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Creative Kids Corner",
+    "description": "Creative Kids Corner is an engaging and educational space designed to foster creativity and learning among underprivileged children. Engage your child in fun and educational activities to nurture their creativity. The Creative Kids Corner offers a range of free activities designed to spark imagination and learning in children. The Creative Kids Corner is not only a place for fun and creativity but also an environment where children can learn, grow, and discover their talents, all while having access to valuable educational resources.",
+    "price": "Free",
+    "imageUrl": "https://i.ibb.co/Gsxk54b/kids-Corner.jpg"
+  },
+  {
+    "id": 6,
+    "title": "IT Learning and Training.",
+    "description": "Advance your IT skills with training in coding, cybersecurity, and more. The IT Learning and Training Center provides courses to help you excel in the field of Information Technology. The IT Learning and Training Center is a specialized institution dedicated to advancing individuals' Information Technology (IT) skills and knowledge. The center provides a wide range of IT courses, covering topics such as coding, cybersecurity, networking, and more. It serves as a hub for individuals looking to enhance their IT skills, whether they are beginners or experienced professionals seeking to stay up-to-date with the latest industry trends.",
+    "price": "Course Fees Apply",
+    "imageUrl": "https://i.ibb.co/8MBL335/Training-Institute.jpg"
+  }
+]
