@@ -1,0 +1,45 @@
+[
+    {
+      "title": "Workshops and Seminars",
+      "description": "Hands-on learning experiences to acquire practical skills and knowledge in various subjects.",
+      "price": "Free or Paid",
+      "imageUrl": "https://i.ibb.co/0BPtqnR/speaker-training-education-conference-46290858.jpg",
+      "buttonText": "Learn More"
+    },
+    {
+      "title": "Online Courses",
+      "description": "Flexible and accessible online courses for skill development and knowledge enhancement.",
+      "price": "Varies",
+      "imageUrl": "https://i.ibb.co/rpcB5Dn/online-courses.jpg",
+      "buttonText": "Enroll Now"
+    },
+    {
+      "title": "Career Fairs",
+      "description": "Connect with employers and explore job opportunities at our career fairs.",
+      "price": "Free Admission",
+      "imageUrl": "https://i.ibb.co/8PXxB7r/career-services.jpg",
+      "buttonText": "Register"
+    },
+    {
+      "title": "Artist Skills Swap",
+      "description": "A creative community where artists share and exchange their skills and expertise.",
+      "price": "Participation is Free",
+      "imageUrl": "https://i.ibb.co/2NbgDw2/Swap.jpg",
+      "buttonText": "Join Now"
+    },
+    {
+      "title": "Creative Kids Corner",
+      "description": "Engage your child in fun and educational activities to nurture their creativity.",
+      "price": "Free",
+      "imageUrl": "https://i.ibb.co/Gsxk54b/kids-Corner.jpg",
+      "buttonText": "Explore"
+    },
+    {
+      "title": "IT Learning and Training Center",
+      "description": "Advance your IT skills with training in coding, cybersecurity, and more.",
+      "price": "Course Fees Apply",
+      "imageUrl": "https://i.ibb.co/8MBL335/Training-Institute.jpg",
+      "buttonText": "Get Started"
+    }
+  ]
+  

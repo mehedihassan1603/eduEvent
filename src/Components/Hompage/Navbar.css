@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Style+Script&display=swap');
+
+.fonty{
+  font-family: 'Style Script', cursive;
+}
+nav a.active{
+    /* text-decoration: underline; */
+    background-color: rgba(243, 8, 8, 0.849);
+    padding-bottom: 2px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 20px;
+    
+}
