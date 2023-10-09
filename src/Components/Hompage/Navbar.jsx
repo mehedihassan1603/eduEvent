@@ -12,7 +12,7 @@ function Navbar() {
       .catch((error) => console.log(error));
   };
   return (
-    <nav className="bg-gradient-to-r from-pink-500 via-purple-500 to-blue-500 px-6 py-3 rounded-b-md">
+    <nav className="bg-gradient-to-r from-slate-900 via-cyan-900 to-blue-900 px-6 py-3">
       <div className="container mx-auto flex items-center justify-between">
         <Link
           to="/"
@@ -80,6 +80,19 @@ function Navbar() {
               Contact
             </NavLink>
           </li>
+          {
+            user && <>
+                      <li>
+            <NavLink
+              to="/notice"
+              className="text-white hover:text-pink-300 transition duration-300"
+            >
+              Notice
+            </NavLink>
+          </li>
+            
+            </>
+          }
         </ul>
         <div className="text-white">
           {user ? (

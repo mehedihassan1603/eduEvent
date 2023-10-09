@@ -14,6 +14,7 @@ import Register from "./Components/Register/Register";
 import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import Details from "./Components/Details/Details";
 import PrivateRoute from "./Components/Routess/PrivateRoute";
+import Notice from "./Components/Notice/Notice";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         loader: () => fetch("/data.json"),
         element: <Home></Home>,
       },
-      
+
       {
         path: "/about",
         element: <AboutUs></AboutUs>,
@@ -35,20 +36,31 @@ const router = createBrowserRouter([
         element: <ContactUs></ContactUs>,
       },
       {
-        path: '/details/:id',
-        loader: () => fetch('/data.json'),
-        element: <PrivateRoute><Details></Details></PrivateRoute>
+        path: "/notice",
+        element: (
+          <PrivateRoute>
+            <Notice></Notice>
+          </PrivateRoute>
+        ),
       },
-      
+      {
+        path: "/details/:id",
+        loader: () => fetch("/data.json"),
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/login",
+        element: <Login>,</Login>,
+      },
+      {
+        path: "/register",
+        element: <Register></Register>,
+      },
     ],
-  },
-  {
-    path: "/login",
-    element: <Login>,</Login>,
-  },
-  {
-    path: "/register",
-    element: <Register></Register>,
   },
 ]);
 

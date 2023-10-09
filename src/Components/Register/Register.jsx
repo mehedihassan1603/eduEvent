@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -13,15 +16,24 @@ const Register = () => {
     console.log(name, email, password);
     createUser(email, password)
     .then(result =>{
-      console.log(result)
+      console.log(result);
+      toast.success("Account created successfully!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+        });
+
+        setTimeout(() => {
+          e.target.reset();
+          navigate('/');
+        }, 2000);  
     })
     .catch(error =>{
       console.error(error);
     })
   };
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+    <div className="min-h-screen bg-sky-900 flex flex-col items-center justify-center">
+      <div className="bg-orange-300 p-8 rounded-lg shadow-md w-96">
         <h1 className="text-2xl font-semibold mb-4">Register</h1>
         <form onSubmit={handleRegister}>
           <div className="mb-4">
@@ -74,8 +86,9 @@ const Register = () => {
           </div>
           <p className="mt-2">Already have an Account? Please <span className="text-blue-500"><Link to="/login">Login.</Link></span></p>
         </form>
+        <ToastContainer></ToastContainer>
       </div>
-      <Link to="/"><button className="btn btn-primary text-center mt-6">Back to Home</button></Link>
+      
     </div>
   );
 };

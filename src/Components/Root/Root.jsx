@@ -3,7 +3,7 @@ import Navbar from "../Hompage/Navbar";
 
 const Root = () => {
     return (
-        <div className="w-11/12 mx-auto">
+        <div className="bg-sky-900">
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Data = ({ data }) => {
   
   const { title, description, imageUrl, price, id } = data;
-  const shortDescription = description.slice(0, 100);
+  const shortDescription = description.slice(0, 150);
   useEffect(() => {
     Aos.init({
       duration: 1000,
@@ -16,7 +16,7 @@ const Data = ({ data }) => {
 
   
   return (
-    <div className="border bg-red-200 rounded-lg p-4 shadow-md mb-4 mt-4" data-aos="slide-right">
+    <div className="border bg-slate-200 rounded-lg p-4 shadow-md mb-4 mt-4 mx-10" data-aos="slide-up">
       <div className="flex">
         <div className="w-1/3 pr-4">
           <img src={imageUrl} alt={title} className="w-full h-auto" />

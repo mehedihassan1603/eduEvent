@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  const {signInUser} = useContext(AuthContext);
+  const {signInUser, signInWithGoogle} = useContext(AuthContext);
   const navigate = useNavigate();
   const handleLogin = e =>{
     e.preventDefault();
@@ -14,17 +16,34 @@ const Login = () => {
     signInUser(email, password)
     .then(result =>{
       console.log(result.user);
-      e.target.reset();
-      navigate('/');
+      toast.success("Login successful!", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+        });
 
+        setTimeout(() => {
+          e.target.reset();
+          navigate('/');
+        }, 2000);  
     })
     .catch(error=>{
       console.error(error);
     })
+
+  }
+  const handleGoogle =()=>{
+    signInWithGoogle()
+    .then(result =>{
+      console.log(result);
+      navigate('/');
+    })
+    .catch(error =>{
+      console.log(error)
+    })
   }
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-sky-900">
+      <div className="bg-orange-300 p-8 rounded-lg shadow-md w-96">
         <h1 className="text-2xl font-semibold mb-4">Login</h1>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
@@ -63,9 +82,15 @@ const Login = () => {
             </button>
           </div>
           <p className="mt-2">New here? Please <span className="text-blue-500"><Link to="/register">Register Account.</Link></span></p>
+          
+          Or
         </form>
+        <p>
+          Login with <button onClick={handleGoogle} className="btn-sm rounded-md bg-cyan-400">Google</button>
+        </p>
+        <ToastContainer></ToastContainer>
       </div>
-      <Link to="/"><button className="btn btn-primary text-center mt-6">Back to Home</button></Link>
+      
     </div>
   );
 };
