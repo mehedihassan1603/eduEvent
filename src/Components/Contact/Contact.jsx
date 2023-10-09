@@ -77,7 +77,7 @@ const Contact = () => {
             </div>
             <div className="flex gap-3">
             <img
-            src="https://thumbs.dreamstime.com/b/instagram-154683470.jpg"
+            src="https://static.vecteezy.com/system/resources/previews/024/170/870/original/instagram-icon-logo-symbol-free-png.png"
             alt=""
             className="rounded-full"
             style={{ width: "40px", height: "40px" }}

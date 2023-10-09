@@ -29,7 +29,7 @@ const Footer = () => {
         </div>
         <div>
           <img
-            src="https://thumbs.dreamstime.com/b/instagram-154683470.jpg"
+            src="https://static.vecteezy.com/system/resources/previews/024/170/870/original/instagram-icon-logo-symbol-free-png.png"
             alt=""
             className="rounded-full"
             style={{ width: "60px", height: "60px" }}
