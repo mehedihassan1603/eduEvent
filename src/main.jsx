@@ -15,6 +15,7 @@ import AuthProvider from "./Components/AuthProvider/AuthProvider";
 import Details from "./Components/Details/Details";
 import PrivateRoute from "./Components/Routess/PrivateRoute";
 import Notice from "./Components/Notice/Notice";
+import Dashboard from "./Components/Dashboard/Dashboard";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Notice></Notice>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard></Dashboard>
           </PrivateRoute>
         ),
       },

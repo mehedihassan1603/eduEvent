@@ -7,6 +7,7 @@ import About from "./About Us/About";
 import Contact from "../Contact/Contact";
 import Banner from "../Banner/Banner";
 import "./Home.css";
+import Tulip from "../Tulip/Tulip";
 
 const Home = () => {
   const data = useLoaderData();
@@ -54,6 +55,7 @@ const Home = () => {
           <Data data={data}></Data>
         ))}
       </div>
+      <Tulip></Tulip>
       <div>
         <About></About>
       </div>

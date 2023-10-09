@@ -89,6 +89,13 @@ function Navbar() {
             >
               Notice
             </NavLink>
+            
+            <NavLink
+              to="/dashboard"
+              className="text-white ml-4 hover:text-pink-300 transition duration-300"
+            >
+              Dashboard
+            </NavLink>
           </li>
             
             </>

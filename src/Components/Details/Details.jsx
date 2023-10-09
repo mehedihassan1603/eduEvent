@@ -14,13 +14,13 @@ const Details = () => {
   }
 
   return (
-    <div className="w-4/5 mx-auto py-10">
+    <div className="w-4/5 mx-auto py-10 text-white">
       <div>
         <img className="size" src={data.imageUrl} alt="" />
       </div>
-      <div className="text-3xl font-bold py-5">{data.title}</div>
+      <div className="text-4xl font-bold py-5">{data.title}</div>
       <div>
-        <h1>Description: {data.description}</h1>
+        <h1 className="text-lg">Description: {data.description}</h1>
       </div>
     </div>
   );

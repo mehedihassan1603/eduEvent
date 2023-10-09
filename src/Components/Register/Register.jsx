@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [passwordError, setPasswordError] = useState("");
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -14,23 +15,35 @@ const Register = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(name, email, password);
-    createUser(email, password)
-    .then(result =>{
-      console.log(result);
-      toast.success("Account created successfully!", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
-        });
 
-        setTimeout(() => {
-          e.target.reset();
-          navigate('/');
-        }, 2000);  
-    })
-    .catch(error =>{
-      console.error(error);
-    })
+    if (password.length < 6) {
+      setPasswordError("Password must be at least 6 characters long.");
+    } else if (!/[A-Z]/.test(password)) {
+      setPasswordError("Password must contain at least one uppercase letter.");
+    } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(password)) {
+      setPasswordError("Password must contain at least one special character.");
+    } else {
+      setPasswordError("");
+
+      createUser(email, password)
+        .then((result) => {
+          console.log(result);
+          toast.success("Account created successfully!", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 2000,
+          });
+
+          setTimeout(() => {
+            e.target.reset();
+            navigate('/');
+          }, 2000);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
   };
+
   return (
     <div className="min-h-screen bg-sky-900 flex flex-col items-center justify-center">
       <div className="bg-orange-300 p-8 rounded-lg shadow-md w-96">
@@ -74,6 +87,7 @@ const Register = () => {
               name="password"
               className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             ></input>
+            {passwordError && <p className="text-red-500">{passwordError}</p>} {/* Display password error message */}
           </div>
 
           <div className="mt-6">
@@ -88,7 +102,6 @@ const Register = () => {
         </form>
         <ToastContainer></ToastContainer>
       </div>
-      
     </div>
   );
 };
