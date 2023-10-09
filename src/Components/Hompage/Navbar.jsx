@@ -101,10 +101,14 @@ function Navbar() {
             </>
           }
         </ul>
-        <div className="text-white">
+        <div className="text-white flex items-center">
           {user ? (
             <>
-              <span>{user.email}</span>
+              
+              <div className="flex flex-col justify-center items-center">
+              <span><img className="w-10 rounded-full" src={user.photoURL} alt="" /></span>
+              <span>{user.displayName}</span>
+              </div>
               <button className="bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-indigo-500 hover:to-purple-500 text-white font-semibold py-2 px-4 rounded-full shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
                 <a onClick={handleLogout}>Logout</a>
               </button>

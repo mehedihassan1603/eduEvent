@@ -1,46 +1,61 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-  const {signInUser, signInWithGoogle} = useContext(AuthContext);
+  const { signInUser, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
-  const handleLogin = e =>{
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const handleLogin = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
 
+    // Clear any previous error messages
+    setEmailError("");
+    setPasswordError("");
+
     signInUser(email, password)
-    .then(result =>{
-      console.log(result.user);
-      toast.success("Login successful!", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 2000,
+      .then(result => {
+        console.log(result.user);
+        toast.success("Login successful!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
         });
 
         setTimeout(() => {
           e.target.reset();
           navigate('/');
-        }, 2000);  
-    })
-    .catch(error=>{
-      console.error(error);
-    })
+        }, 2000);
+      })
+      .catch(error => {
+        console.error(error);
+        if (error.code === "auth/user-not-found") {
+          setEmailError("Email not found.");
+        } else if (error.code === "auth/wrong-password") {
+          setPasswordError("Incorrect password.");
+        } else if (error.code === "auth/invalid-login-credentials") {
+          setPasswordError("Email not found or Incorrect password.");
+        }
+      });
+  }
 
-  }
-  const handleGoogle =()=>{
+  const handleGoogle = () => {
     signInWithGoogle()
-    .then(result =>{
-      console.log(result);
-      navigate('/');
-    })
-    .catch(error =>{
-      console.log(error)
-    })
+      .then(result => {
+        console.log(result);
+        navigate('/');
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-sky-900">
       <div className="bg-orange-300 p-8 rounded-lg shadow-md w-96">
@@ -57,6 +72,7 @@ const Login = () => {
               name="email"
               className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             />
+            {emailError && <p className="text-red-500">{emailError}</p>}
           </div>
           <div className="mb-4">
             <label
@@ -72,6 +88,7 @@ const Login = () => {
               name="password"
               className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             />
+            {passwordError && <p className="text-red-500">{passwordError}</p>}
           </div>
           <div className="mt-6">
             <button
@@ -82,15 +99,12 @@ const Login = () => {
             </button>
           </div>
           <p className="mt-2">New here? Please <span className="text-blue-500"><Link to="/register">Register Account.</Link></span></p>
-          
-          Or
         </form>
         <p>
           Login with <button onClick={handleGoogle} className="btn-sm rounded-md bg-cyan-400">Google</button>
         </p>
         <ToastContainer></ToastContainer>
       </div>
-      
     </div>
   );
 };
