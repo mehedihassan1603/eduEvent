@@ -2,19 +2,20 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [passwordError, setPasswordError] = useState("");
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
     const name = e.target.name.value;
+    const photoUrl = e.target.PhotoUrl.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(name, email, password);
 
     if (password.length < 6) {
       setPasswordError("Password must be at least 6 characters long.");
@@ -25,22 +26,28 @@ const Register = () => {
     } else {
       setPasswordError("");
 
-      createUser(email, password)
-        .then((result) => {
-          console.log(result);
-          toast.success("Account created successfully!", {
-            position: toast.POSITION.TOP_CENTER,
-            autoClose: 2000,
-          });
-
-          setTimeout(() => {
-            e.target.reset();
-            navigate('/');
-          }, 2000);
-        })
-        .catch((error) => {
-          console.error(error);
+      try {
+        const auth = getAuth();
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+        await updateProfile(user, {
+          displayName: name,
+          photoURL: photoUrl,
         });
+
+        console.log("User profile updated successfully.");
+        toast.success("Account created successfully!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        });
+
+        setTimeout(() => {
+          e.target.reset();
+          navigate("/");
+        }, 2000);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -58,6 +65,18 @@ const Register = () => {
               id="name"
               placeholder="name"
               name="name"
+              className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
+            ></input>
+          </div>
+          <div className="mb-4">
+            <label htmlFor="name" className="block text-gray-700 font-medium">
+              Profile Photo Link
+            </label>
+            <input
+              type="text"
+              id="PhotoUrl"
+              placeholder="PhotoUrl"
+              name="PhotoUrl"
               className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             ></input>
           </div>
@@ -87,7 +106,8 @@ const Register = () => {
               name="password"
               className="w-full border rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
             ></input>
-            {passwordError && <p className="text-red-500">{passwordError}</p>} {/* Display password error message */}
+            {passwordError && <p className="text-red-500">{passwordError}</p>}{" "}
+            {/* Display password error message */}
           </div>
 
           <div className="mt-6">
@@ -98,7 +118,12 @@ const Register = () => {
               Register
             </button>
           </div>
-          <p className="mt-2">Already have an Account? Please <span className="text-blue-500"><Link to="/login">Login.</Link></span></p>
+          <p className="mt-2">
+            Already have an Account? Please{" "}
+            <span className="text-blue-500">
+              <Link to="/login">Login.</Link>
+            </span>
+          </p>
         </form>
         <ToastContainer></ToastContainer>
       </div>

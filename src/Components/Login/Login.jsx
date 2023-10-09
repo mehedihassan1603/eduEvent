@@ -16,7 +16,7 @@ const Login = () => {
     const password = e.target.password.value;
     console.log(email, password);
 
-    // Clear any previous error messages
+    
     setEmailError("");
     setPasswordError("");
 
@@ -47,9 +47,15 @@ const Login = () => {
 
   const handleGoogle = () => {
     signInWithGoogle()
-      .then(result => {
-        console.log(result);
-        navigate('/');
+      .then(() => {
+        toast.success("Login successful!", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 2000,
+        });
+
+        setTimeout(() => {
+          navigate('/');
+        }, 2000);
       })
       .catch(error => {
         console.log(error);

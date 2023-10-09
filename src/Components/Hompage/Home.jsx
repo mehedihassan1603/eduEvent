@@ -52,7 +52,7 @@ const Home = () => {
           </h1>
         </div>
         {data.map((data) => (
-          <Data data={data}></Data>
+          <Data key={data.id} data={data}></Data>
         ))}
       </div>
       <Tulip></Tulip>
