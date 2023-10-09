@@ -7,7 +7,7 @@ const Contact = () => {
           If you have any questions or inquiries, feel free to contact us using
           the information below.
         </p>
-        <div className="mt-4 flex justify-center items-center gap-20">
+        <div className="mt-4 flex flex-col md:flex-row lg:flex-row justify-center items-center gap-20">
           <div className="flex text-lg w-60 h-60 flex-col gap-3 border-4 p-4 rounded-lg bg-purple-200 border-red-300">
             <h1 className="font-bold bg-slate-300 rounded-lg p-4">
               Phone Number

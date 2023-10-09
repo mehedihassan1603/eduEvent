@@ -13,20 +13,20 @@ function Navbar() {
   };
   return (
     <nav className="bg-gradient-to-r from-slate-900 via-cyan-900 to-blue-900 px-6 py-3">
-      <div className="container mx-auto flex items-center justify-between">
+      <div className="container mx-auto flex flex-col md:flex-col lg:flex-row items-center justify-between">
         <Link
           to="/"
           className="text-white text-6xl font-bold tracking-wider fonty"
         >
           EduEvent
         </Link>
-        <ul className="space-x-6 flex text-xl">
+        <ul className="space-x-6 flex flex-col md:flex-col lg:flex-row text-xl">
           <li>
             <NavLink
               to="/"
               className="text-white hover:text-pink-300 transition duration-300"
             >
-              Home
+            Home
             </NavLink>
           </li>
           <div className="dropdown dropdown-hover">
@@ -35,7 +35,7 @@ function Navbar() {
               tabIndex={0}
               className="m-1 text-white hover:text-pink-300 transition duration-300"
             >
-              Event
+            Event
             </label>
             
 
@@ -77,28 +77,29 @@ function Navbar() {
               to="/contact"
               className="text-white hover:text-pink-300 transition duration-300"
             >
-              Contact
+            Contact
             </NavLink>
           </li>
           {
-            user && <>
+            user && <div className="flex flex-col md:flex-col lg:flex-row">
                       <li>
             <NavLink
               to="/notice"
               className="text-white hover:text-pink-300 transition duration-300"
             >
-              Notice
+            Notice
             </NavLink>
-            
+            </li>
+            <li>            
             <NavLink
               to="/dashboard"
-              className="text-white ml-4 hover:text-pink-300 transition duration-300"
+              className="text-white ml-0 md:ml-0 lg:ml-4 hover:text-pink-300 transition duration-300"
             >
-              Dashboard
+            Dashboard
             </NavLink>
           </li>
             
-            </>
+            </div>
           }
         </ul>
         <div className="text-white flex items-center">

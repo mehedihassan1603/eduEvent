@@ -15,6 +15,7 @@ import Details from "./Components/Details/Details";
 import PrivateRoute from "./Components/Routess/PrivateRoute";
 import Notice from "./Components/Notice/Notice";
 import Dashboard from "./Components/Dashboard/Dashboard";
+import NotFound from "./Components/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>,
+      },
+      {
+        path: "*",
+        element: <NotFound></NotFound>,
       },
     ],
   },
