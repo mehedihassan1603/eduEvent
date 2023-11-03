@@ -3,7 +3,9 @@ import { useLoaderData, useParams } from "react-router-dom";
 
 const Details = () => {
   const details = useLoaderData();
+  console.log(details)
   const { id } = useParams();
+  console.log(id)
   const idInt = parseInt(id);
 
   // Handle the case where data is not found
